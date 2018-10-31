@@ -1,0 +1,86 @@
+
+super clase
+
+package Trabajo_final;
+import java.util.Scanner;
+
+public class Pesona {
+//    atributos
+    private String numero_id;
+    private String nombre;
+    //constructor Persona
+    public Pesona (){
+        System.out.println("ejecutando el contructor de persona");
+    }
+    // constructor con parametros
+    public Pesona (String numero_id, String nombre ){
+        this.numero_id = numero_id;
+        this.nombre = nombre;        
+    }
+    // metodos get y set
+    public String getnumero_id() {return numero_id; } 
+    public void setnumero_id  (string numero_id) {this.numero_id = numero_id;}
+    public String getnombre() {return nombre; } 
+    public void setnombre (string nombre) {this.nombre = nombre;}
+    //metodo leer
+    public void leer(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("numero_id");
+        this.numero_id = sc.nextLine();
+        System.out.print("nombre");
+        this.nombre = sc.nextLine();
+    }
+}
+
+
+clase hija
+
+package Trabajo_final;
+import java.util.Scanner;
+
+public class Alumnos extends Pesona {
+    private String curso;
+    //constructor alumnos
+    public Alumnos  (){
+        System.out.println("ejecutando constructor alumnos");
+    }
+    //constructor con parametrs
+    public Alumnos(String numero_id, String nombre, String curso){
+      super(numero_id,nombre);
+      this.curso = curso;      
+    }
+    //metodos get y set
+    public String getcurso(){
+        return curso;
+    }
+    public void setcurso(String curso){
+        this.curso = curso;
+    }
+    public void leer(){
+        Scanner sc = new Scanner (System.in);
+        super.leer();
+        System.out.print("curso: ");
+        this.curso = sc.nextLine();
+    }
+}
+
+
+clase prinncipal
+
+package trabajo_final;
+public class Trabajo_final {
+
+    
+    public static void main(String[] args) {
+        
+        Alumno a = new Alumno ();
+        a.leer();
+        System.out.println("se agrego el alumno: "+ a.getnumero_id() + "-"
+                           + a.getnombre() + "-" + a.getcurso());
+        Alumno b = new Alumno ("1234567890","Pedro Prerez","POO");
+        System.out.println("se agrego el alumno: "+ b.getnumero_id() + "-"
+                           + b.getnombre() + "-" + b.getcurso());
+    }
+    
+}
+
